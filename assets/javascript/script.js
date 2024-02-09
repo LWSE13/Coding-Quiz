@@ -18,9 +18,19 @@ function startQuiz() {
   currentQuestion = 0;
   score = 0;
 
+
   if (secondsLeft > 0) {
     timerEl.textContent = secondsLeft;
   } else {
+    stopQuiz();
+  }
+} 
 
-
-} }
+function stopQuiz() {
+  clearInterval(timerInterval);
+  timerEl.textContent = "Time's up!";
+ questionScreenEl.style.display = "none";
+ welcomeScreenEl.style.display = "none";
+ ResultsScreenEl.style.display = "flex";
+ resultsMessageEl.textContent = "You scored " + score;
+}

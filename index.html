@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="assets/css/style.css"></link>
     <script src="assets/javascript/questions.js"></script>
 </head>
-
 <body>
     <header>
         <div id="high-scores">
@@ -17,42 +16,35 @@
     </header>
     <main>
         <section class="quiz-container">
-            <div id="welcome-box">
+            <div id="welcome-box" class="hidden">
                 <h1 class="welcome-message"> Welcome to the coding quiz!</h1>
                 <button id="start-quiz">Start Quiz</button>
             </div>
+            <div id="question-box" class="hidden">
+                <div id="question">
+                    <!---->
+                </div>
+                <div id="selections">
+                    <!---->
+                </div>
+                <div id="message">
+                    <!---->
+                </div>
+            </div>
+            <div id="result-screen" class="hidden">
+                <div id="result-message">
+                    <!---->
+                </div>
+                <div id="user-name">
+                    <!----> 
+                </div>
+                <div id="result-buttons">
+                    <button id="view-high-scores">View high Scores</button>
+                    <button id="restart-quiz">Restart quiz</button>
+                </div>
+            </div>
+            </div>
         </section>
-    <div id="question-box" class="hidden">
-        <div id="question">
-            <!---->
-        </div>
-        
-        <div id="selections">
-            <!---->
-        </div>
-
-        <div id="message">
-            <!---->
-        </div>
-
-    </div>
-
-    <div id="result screen" class="hidden">
-        <div id="result-message">
-            <!---->
-        </div>
-
-        <div id="user-name">
-           <!----> 
-        </div>
-
-        <div id="result-buttons">
-            <button id="view-high-scores">View high Scores</button>
-            <button id="restart-quiz">Restart quiz</button>
-        </div>
-
-    </div>
-
     </main>
     <script src="assets/javascript/script.js"></script>
 </body>
