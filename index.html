@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coding Quiz!!!</title>
     <link rel="stylesheet" href="assets/css/style.css"></link>
-    <script src="assets/javascript/script.js"></script>
+    <script src="assets/javascript/questions.js"></script>
 </head>
 
 <body>
@@ -13,12 +13,46 @@
         <div id="high-scores">
             <a href="highscores.html">View High Scores</a>
         </div>
+        <div id="timer">00</div>
     </header>
     <main>
         <div id="welcome-box">
-            <h1 class="welcome-message"></h1>
-            <button id="start-quiz"></button>
+            <h1 class="welcome-message"> Welcome to the coding quiz!</h1>
+            <button id="start-quiz">Start Quiz</button>
         </div>
+
+    <div id="question-box" class="hidden">
+        <div id="question">
+            <!---->
+        </div>
+        
+        <div id="selections">
+            <!---->
+        </div>
+
+        <div id="message">
+            <!---->
+        </div>
+
+    </div>
+
+    <div id="result screen" class="hidden">
+        <div id="result-message">
+            <!---->
+        </div>
+
+        <div id="user-name">
+           <!----> 
+        </div>
+
+        <div id="result-buttons">
+            <button id="view-high-scores">View high Scores</button>
+            <button id="restart-quiz">Restart quiz</button>
+        </div>
+
+    </div>
+
     </main>
+    <script src="assets/javascript/script.js"></script>
 </body>
 </html>
