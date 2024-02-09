@@ -36,3 +36,24 @@ header {
 #timer {
     font-size: 40px;
 }
+
+#question-box,
+#result-screen {
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center ;
+    height: 80vh;
+    outline: solid 3px black;
+    width: 60%;
+    margin: 10px;
+}
+
+#user-name {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#submit-score {
+    width: 50%;
+}
