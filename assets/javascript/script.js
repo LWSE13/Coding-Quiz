@@ -1,5 +1,6 @@
 //declared set of variables that selects elements to be used in the script
-var questions = questions[questionIndex];
+questionIndex = 0;
+questions  = questions[questionIndex];
 var startQuizEl = document.getElementById("start-quiz");
 var quizContainerEl = document.querySelector('.quiz-container');
 var welcomeScreenEl = document.getElementById("welcome-box");
@@ -20,16 +21,22 @@ var score = 0;
 var timerInterval 
 
 function updateQuestionDisplay () {
+
   questionHeaderEl.innerHTML = '';
+  selectionsEl.innerHTML = '';
   var questionTitleEl = document.createElement('p');
   questionTitleEl.textContent = questions.title;
   questionHeaderEl.appendChild(questionTitleEl);
-  selectionsEl = document.createElement('ul');
-
-  for (let i = 0; i < 4; i++) {
-    let li = document.createElement('li');
+  
+  var selectionsContainerEl = document.createElement('div');
+  for (var i = 0; i < questions.choices.length; i++) {
+    var choiceEl = document.createElement('button');
+    choiceEl.textContent = questions.choices[i];
+    selectionsEl.appendChild(selectionsContainerEl);
+    selectionsContainerEl.appendChild(choiceEl);
+    }
   }
-}
+
 
 function stopQuiz() {
   clearInterval(timerInterval);
@@ -42,7 +49,7 @@ function stopQuiz() {
 }
 
 function startQuiz() {
-  secondsLeft = 9;
+  secondsLeft = 11;
   currentQuestion = 0;
   score = 0;
 
@@ -64,3 +71,4 @@ startButtonEl.addEventListener("click", startQuiz);
 restartButtonEl.addEventListener("click", startQuiz);
 
 
+length

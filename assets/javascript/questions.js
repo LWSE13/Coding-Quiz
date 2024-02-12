@@ -34,4 +34,4 @@ var questions = [
   },
 ];
 
-var questionIndex = 0;
+  
