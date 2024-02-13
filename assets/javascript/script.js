@@ -1,6 +1,4 @@
 //declared set of variables that selects elements to be used in the script
-questionIndex = 0;
-questions  = questions[questionIndex];
 var startQuizEl = document.getElementById("start-quiz");
 var quizContainerEl = document.querySelector('.quiz-container');
 var welcomeScreenEl = document.getElementById("welcome-box");
@@ -16,41 +14,60 @@ var restartButtonEl = document.getElementById("restart-quiz");
 
 //declared global variables to be used within my functions
 var secondsLeft = 0;
-var currentQuestion = 0;
 var score = 0;
-var timerInterval 
+var timerInterval;
 
-function updateQuestionDisplay () {
-
+function updateQuestionDisplay() {
   questionHeaderEl.innerHTML = '';
   selectionsEl.innerHTML = '';
+  currentQuestion = questions[questionIndex];
   var questionTitleEl = document.createElement('p');
-  questionTitleEl.textContent = questions.title;
+  questionTitleEl.textContent = currentQuestion.title;
   questionHeaderEl.appendChild(questionTitleEl);
-  
+
   var selectionsContainerEl = document.createElement('div');
-  for (var i = 0; i < questions.choices.length; i++) {
+  for (var i = 0; i < currentQuestion.choices.length; i++) {
     var choiceEl = document.createElement('button');
-    choiceEl.textContent = questions.choices[i];
-    selectionsEl.appendChild(selectionsContainerEl);
+    choiceEl.textContent = currentQuestion.choices[i];
     selectionsContainerEl.appendChild(choiceEl);
-    }
+    choiceEl.addEventListener("click", function() {
+      //
+      answerSelect.call(this);
+      questionIndex++;
+      if (questionIndex < questions.length) {
+        updateQuestionDisplay();
+      } else {
+        stopQuiz();
+      }
+    });
+  }
+  selectionsEl.appendChild(selectionsContainerEl);
+}
+
+function answerSelect() {
+  var correctAnswer = questions[questionIndex].answer;
+  var userAnswer = this.textContent;
+  if (userAnswer === correctAnswer) {
+    score+= 20;
+    messageEl.textContent = "Correct!";
+  } else {
+    secondsLeft -= 10;
   }
 
+}
 
 function stopQuiz() {
   clearInterval(timerInterval);
   timerEl.textContent = "Time's up!";
- questionScreenEl.style.display = "none";
- welcomeScreenEl.style.display = "none";
- resultsScreenEl.style.display = "flex";
- resultsMessageEl.textContent = "You scored " + score;
- 
+  questionScreenEl.style.display = "none";
+  welcomeScreenEl.style.display = "none";
+  resultsScreenEl.style.display = "flex";
+  resultsMessageEl.textContent = "You scored " + score + " / 100!";
 }
 
 function startQuiz() {
+  questionIndex = 0;
   secondsLeft = 11;
-  currentQuestion = 0;
   score = 0;
 
   timerInterval = setInterval(function() {
@@ -60,7 +77,7 @@ function startQuiz() {
     } else {
       stopQuiz();
     }
-  },1000)
+  }, 1000)
   welcomeScreenEl.style.display = "none";
   questionScreenEl.style.display = "flex";
   resultsScreenEl.style.display = "none";
@@ -69,6 +86,3 @@ function startQuiz() {
 
 startButtonEl.addEventListener("click", startQuiz);
 restartButtonEl.addEventListener("click", startQuiz);
-
-
-length

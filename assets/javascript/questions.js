@@ -33,5 +33,5 @@ var questions = [
     answer: 'console.log',
   },
 ];
-
+var questionIndex = 0;
   
