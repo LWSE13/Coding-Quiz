@@ -52,8 +52,12 @@ function answerSelect() {
     messageEl.textContent = "Correct!";
   } else {
     secondsLeft -= 10;
+    timerEl.textContent = secondsLeft;
+    messageEl.textContent = "Incorrect!";
   }
-
+  setTimeout(function() {
+    messageEl.textContent = "";
+  }, 1000);
 }
 
 function stopQuiz() {
@@ -67,7 +71,7 @@ function stopQuiz() {
 
 function startQuiz() {
   questionIndex = 0;
-  secondsLeft = 11;
+  secondsLeft = 61;
   score = 0;
 
   timerInterval = setInterval(function() {
