@@ -11,7 +11,9 @@ var messageEl = document.getElementById("message");
 var timerEl = document.getElementById("timer");
 var startButtonEl = document.getElementById("start-quiz");
 var restartButtonEl = document.getElementById("restart-quiz");
-
+var ViewHscoresEl = document.getElementById("view-high-scores");
+var submitScoreButtonEl = document.getElementById("submit-score");
+var userInitialsInputEl = document.getElementById("user-initials");
 //declared global variables to be used within my functions
 var secondsLeft = 0;
 var score = 0;
@@ -90,3 +92,24 @@ function startQuiz() {
 
 startButtonEl.addEventListener("click", startQuiz);
 restartButtonEl.addEventListener("click", startQuiz);
+ViewHscoresEl.addEventListener("click", function() {
+  window.location.href = "hscores.html";
+});
+submitScoreButtonEl.addEventListener("click", function() {
+  var userInitials = userInitialsInputEl.value;
+  var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+
+  var newScore = {
+      initials: userInitials,
+      score: score
+  };
+
+  highScores.push(newScore);
+
+  userInitialsInputEl.value = "";
+  scoreSubmittedText = document.createElement("p");
+  scoreSubmittedText.textContent = "Score submitted!";
+  submitScoreButtonEl.parentNode.appendChild(scoreSubmittedText);
+
+  localStorage.setItem("highScores", JSON.stringify(highScores));
+});
