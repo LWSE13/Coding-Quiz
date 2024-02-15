@@ -25,12 +25,15 @@ function updateQuestionDisplay() {
   currentQuestion = questions[questionIndex];
   var questionTitleEl = document.createElement('p');
   questionTitleEl.textContent = currentQuestion.title;
+  questionTitleEl.classList.add("question-heading")
   questionHeaderEl.appendChild(questionTitleEl);
 
   var selectionsContainerEl = document.createElement('div');
+  selectionsContainerEl.classList.add("selections-container")
   for (var i = 0; i < currentQuestion.choices.length; i++) {
     var choiceEl = document.createElement('button');
     choiceEl.textContent = currentQuestion.choices[i];
+    choiceEl.classList.add("answer-button-styling")
     selectionsContainerEl.appendChild(choiceEl);
     choiceEl.addEventListener("click", function() {
       //
@@ -51,14 +54,22 @@ function answerSelect() {
   var userAnswer = this.textContent;
   if (userAnswer === correctAnswer) {
     score+= 20;
+    messageEl.classList.remove("incorrect")
+    messageEl.classList.add("correct")
+    messageEl.style.opacity = 1;
     messageEl.textContent = "Correct!";
   } else {
     secondsLeft -= 10;
     timerEl.textContent = secondsLeft;
+    messageEl.classList.remove("correct")
+    messageEl.classList.add("incorrect")
+    messageEl.style.opacity = 1;
     messageEl.textContent = "Incorrect!";
   }
   setTimeout(function() {
     messageEl.textContent = "";
+    messageEl.style.opacity = 0;
+    messageEl.style.transition = 1;
   }, 1000);
 }
 
@@ -68,12 +79,13 @@ function stopQuiz() {
   questionScreenEl.style.display = "none";
   welcomeScreenEl.style.display = "none";
   resultsScreenEl.style.display = "flex";
+  resultsMessageEl.classList.add("question-heading")
   resultsMessageEl.textContent = "You scored " + score + " / 100!";
 }
 
 function startQuiz() {
   questionIndex = 0;
-  secondsLeft = 61;
+  secondsLeft = 610000;
   score = 0;
 
   timerInterval = setInterval(function() {
