@@ -10,11 +10,11 @@ My main challenge came in the form of getting the quiz to iterate through questi
 N/A just follow the link provided!: https://lwse13.github.io/Coding-Quiz/
 ## Usage
 You will be greeted by a welcome page asking you to start the quiz. Press the start button to begin
-![welcome](assets/images/welcomess)
+![welcome](assets/images/welcomess.png)
 
 You will be given a series of questions, each with their corresponding choices to select from. Upon clicking a correct answer, a green "Correct"  alert will appear at the bottom of the screen. If the answer is incorrect. A red "incorrect" alert will be shown at the bottom of the screen
-![correct](assets/images/correctss)
-![incorrect](assets/images/incorrectss)
+![correct](assets/images/correctss.png)
+![incorrect](assets/images/incorrectss.png)
 
 Upon quiz completion you will be given a score. You can enter your initials and submit them to the high score page. you will be able to clear your high scores at any time just in case you would like to start from scratch :)
 
