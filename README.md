@@ -7,7 +7,7 @@ As well as local storage stringify and parsing. I built upon my previous css and
 My main challenge came in the form of getting the quiz to iterate through questions. It took a lot of backtracking and youtube videos for me to finally understand what needed to be done. I did struggle with my local storage array parsing at first but was able to simply add "||[]" to the end of my code which created the array I needed. After that it was smooth sailing
 
 ## Installation
-N/A just follow the link provided!: https://lwse13.github.io/Coding-Quiz/
+Just follow the link provided!: https://lwse13.github.io/Coding-Quiz/
 ## Usage
 You will be greeted by a welcome page asking you to start the quiz. Press the start button to begin
 ![welcome](assets/images/welcomess.png)
