@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family:  helvetica;
 }
 
 .quiz-container {
@@ -56,4 +57,24 @@ header {
 
 #submit-score {
     width: 50%;
+}
+
+#hs-container-styling {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 200px;
+}
+
+#hs-button-styling {
+    position: flex;
+    bottom: 20%;
+}
+
+#high-scores,
+h1 {
+margin-bottom: 20px;
+}
+
+#questionTitleEl {
+    font-size: px;
 }

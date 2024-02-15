@@ -96,19 +96,26 @@ ViewHscoresEl.addEventListener("click", function() {
   window.location.href = "hscores.html";
 });
 submitScoreButtonEl.addEventListener("click", function() {
+  if (userInitialsInputEl.value === "") {
+    alert("Please enter your initials!");
+    return;
+  }
+  
   var userInitials = userInitialsInputEl.value;
   var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
 
-  var newScore = {
-      initials: userInitials,
+  var userScore = {
+      initials: userInitials.toUpperCase(),
       score: score
-  };
-
-  highScores.push(newScore);
+  };  
+  highScores.push(userScore);
 
   userInitialsInputEl.value = "";
   scoreSubmittedText = document.createElement("p");
   scoreSubmittedText.textContent = "Score submitted!";
+  setTimeout(function() {
+    scoreSubmittedText.textContent = "";
+  }, 1000);
   submitScoreButtonEl.parentNode.appendChild(scoreSubmittedText);
 
   localStorage.setItem("highScores", JSON.stringify(highScores));
