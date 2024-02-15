@@ -1,12 +1,18 @@
+//gets the highscores from local storage and parses it into a variable
 var highscores = JSON.parse(localStorage.getItem("highScores")) || [];
+//creates global variables that take elements from my html
 var highScoreContainerEl = document.getElementById("high-scores")
 var returnButtonEl = document.getElementById("bck-to-quiz")
 var clearScoresButtonEl = document.getElementById("clear-scores") 
 
+//creates an ordered list element and gives it a class of score-list
 scoreListEl = document.createElement("ol")
 scoreListEl.classList.add("score-list")
-highscores.sort(function(a, b) {
-    return b.score - a.score;
+//sorts the highscores array in order of the highest score
+//y.score - x.score takes the result of the two scores being compared and gives a positive or negative value
+//if positive y's score will be placed before x's score if negative vice versa. This achieves an ordered highscore list from highest to lowest
+highscores.sort(function(x, y) {
+    return y.score - x.score;
   });
 
 for (var i = 0; i < highscores.length; i++) {
