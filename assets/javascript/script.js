@@ -75,6 +75,9 @@ function answerSelect() {
   //creates a variable called userAnswer which represents the text content of "this"
   //once again, this represents the element that triggered the function in our case it was the selection button that was clicked
   var userAnswer = this.textContent;
+
+  var correctSound = document.getElementById("correct-sound");
+  var incorrectSound = document.getElementById("incorrect-sound");
   //if the userAnswer is equal to the correctAnswer, the score will increase by 20 and the messageEl will display "Correct!"
   if (userAnswer === correctAnswer) {
     score+= 20;
@@ -84,6 +87,7 @@ function answerSelect() {
     messageEl.classList.add("correct")
     messageEl.style.opacity = 1;
     messageEl.textContent = "Correct!";
+    correctSound.play();
     //if the userAnswer is not equal to the correctAnswer, the secondsLeft will decrease by 10 and the messageEl will display "Incorrect!"
   } else {
     secondsLeft -= 10;
@@ -92,6 +96,7 @@ function answerSelect() {
     messageEl.classList.add("incorrect")
     messageEl.style.opacity = 1;
     messageEl.textContent = "Incorrect!";
+    incorrectSound.play();
   }
   //this setTimeout function removes the messageEl text content and sets the opacity to 0 after 1 second
   //pretty much just getting rid of the messageEl and it's styling after 1 second
